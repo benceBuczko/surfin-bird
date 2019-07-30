@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import {StyledLink} from "../styledComponents/styledComponents";
+import styled from 'styled-components';
+
+const Container = styled('div')`
+    width: 50vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+`;
 
 class MainPage extends Component {
     render () {
         const {routes} = this.props;
 
         return (
-            <div className="container">
+            <Container>
                 {routes.map(route =>(
-                    <div className="link-box" key={route.path}>
-                        <Link className="link" to={route.path}>{route.title}</Link>
+                    <div key={route.path}>
+                        <StyledLink to={route.path}>{route.title}</StyledLink>
                     </div>
                 ))}
-            </div>
+            </Container>
         )
     }
 }
